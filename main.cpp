@@ -6,12 +6,12 @@
 using namespace std;
 
 struct meteo {
-    string name; //Название станции
-    unsigned short int date; //День с начала года
-    deque<unsigned int> wind; //Массив изменений скорости ветра
-    deque<int> themperature; //Массив изменений температуры
-    unsigned int wind_length, themperature_length; // Длины массивов данных о ветре и температуре
-    long double wind_average = 0, themperature_average = 0; //Среднесуточные данные о ветре и температуре
+    string name; //РќР°Р·РІР°РЅРёРµ СЃС‚Р°РЅС†РёРё
+    unsigned short int date; //Р”РµРЅСЊ СЃ РЅР°С‡Р°Р»Р° РіРѕРґР°
+    deque<unsigned int> wind; //РњР°СЃСЃРёРІ РёР·РјРµРЅРµРЅРёСЏ СЃРєРѕСЂРѕСЃС‚Рё
+    deque<int> themperature; //РњР°СЃСЃРёРІ РёР·РјРµРЅРµРЅРёСЏ С‚РµРјРїРµСЂР°С‚СѓСЂС‹
+    unsigned int wind_length, themperature_length; // Р”Р»РёРЅС‹ РјР°СЃСЃРёРІРѕРІ РґР°РЅРЅС‹С… Рѕ РІРµС‚СЂРµ Рё С‚РµРјРїРµСЂР°С‚СѓСЂРµ
+    long double wind_average = 0, themperature_average = 0; //РЎСЂРµРґРЅРµСЃСѓС‚РѕС‡РЅС‹Рµ РґР°РЅРЅС‹Рµ Рѕ РІРµС‚СЂРµ Рё С‚РµРјРїРµСЂР°С‚СѓСЂРµ
 };
 
 int main()
@@ -27,26 +27,26 @@ int main()
 
     while (ActiveProgram)
     {
-        cout << "1. Ввести метеоданные" << endl
-             << "2. Вывод списка метеоданных со среднесуточной температурой ниже заданной" << endl
-             << "3. Вывод списка метеоданных со среднесуточной скоростью ветра выше заданной" << endl
-             << "4. Вывод информации о самом жарком дне" << endl
-             << "5. Выход из программы" << endl
-             << "Введите номер пункта: ";
+        cout << "1. Р’РІРµСЃС‚Рё РјРµС‚РµРѕРґР°РЅРЅС‹Рµ" << endl
+             << "2. Р’С‹РІРѕРґ СЃРїРёСЃРєР° РјРµС‚РµРѕРґР°РЅРЅС‹С… СЃРѕ СЃСЂРµРґРЅРµСЃСѓС‚РѕС‡РЅРѕР№ С‚РµРјРїРµСЂР°С‚СѓСЂРѕР№ РЅРёР¶Рµ Р·Р°РґР°РЅРЅРѕР№" << endl
+             << "3. Р’С‹РІРѕРґ СЃРїРёСЃРєР° РјРµС‚РµРѕРґР°РЅРЅС‹С… СЃРѕ СЃСЂРµРґРЅРµСЃСѓС‚РѕС‡РЅРѕР№ СЃРєРѕСЂРѕСЃС‚СЊСЋ РІРµС‚СЂР° РІС‹С€Рµ Р·Р°РґР°РЅРЅРѕР№" << endl
+             << "4. Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃР°РјРѕРј Р¶Р°СЂРєРѕРј РґРЅРµ" << endl
+             << "5. Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹" << endl
+             << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїСѓРЅРєС‚Р°: ";
         cin >> a;
         switch (a)
         {
             case 1: {
             meteo temp;
-            cout << "Введите название метеостанции: ";
+            cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РјРµС‚РµРѕСЃС‚Р°РЅС†РёРё: ";
             cin >> temp.name;
-            cout << "Введите день получения данных: ";
+            cout << "Р’РІРµРґРёС‚Рµ РґРµРЅСЊ РїРѕР»СѓС‡РµРЅРёСЏ РґР°РЅРЅС‹С…: ";
             cin >> temp.date;
-            cout << "Введите количество записей о скорости ветра: ";
+            cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№ Рѕ СЃРєРѕСЂРѕСЃС‚Рё РІРµС‚СЂР°: ";
             cin >> temp.wind_length;
             for (unsigned int i = 0; i < temp.wind_length; i++) {
-                cout << "Введите " << i + 1 << "-ю запись о скорости ветра: ";
-                unsigned int wind_entry; //Скорость ветра в i + 1 момент
+                cout << "Р’РІРµРґРёС‚Рµ " << i + 1 << "-СЋ Р·Р°РїРёСЃСЊ Рѕ СЃРєРѕСЂРѕСЃС‚Рё РІРµС‚СЂР°: ";
+                unsigned int wind_entry; //РЎРєРѕСЂРѕСЃС‚СЊ РІРµС‚СЂР° РІ i + 1 РјРѕРјРµРЅС‚
                 cin >> wind_entry;
                 temp.wind.push_back(wind_entry);
                 temp.wind_average += wind_entry;
@@ -54,11 +54,11 @@ int main()
             if (temp.wind_length != 0) {
                 temp.wind_average /= temp.wind_length;
             }
-            cout << "Введите количество записей о температуре: ";
+            cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№ Рѕ С‚РµРјРїРµСЂР°С‚СѓСЂРµ: ";
             cin >> temp.themperature_length;
             for (unsigned int i = 0; i < temp.themperature_length; i++) {
-                cout << "Введите " << i + 1 << "-ю запись о температуре: ";
-                int themperature_entry; //Температура ветра в i + 1 момент
+                cout << "Р’РІРµРґРёС‚Рµ " << i + 1 << "-СЋ Р·Р°РїРёСЃСЊ Рѕ С‚РµРјРїРµСЂР°С‚СѓСЂРµ: ";
+                int themperature_entry; 
                 cin >> themperature_entry;
                 temp.themperature.push_back(themperature_entry);
                 temp.themperature_average += themperature_entry;
@@ -68,38 +68,38 @@ int main()
             }
             data.push_back(temp);
             number++;
-            cout << "Ввод данных закончен" << endl;
+            cout << "Р’РІРѕРґ РґР°РЅРЅС‹С… Р·Р°РєРѕРЅС‡РµРЅ" << endl;
             break;
         }
         case 2: {
             int themperature;
-            cout << "Введите среднесуточную температуру: ";
+            cout << "Р’РІРµРґРёС‚Рµ СЃСЂРµРґРЅРµСЃСѓС‚РѕС‡РЅСѓСЋ С‚РµРјРїРµСЂР°С‚СѓСЂСѓ: ";
             cin >> themperature;
             bool isCorrect = false;
             for (int i = 0; i < number; i++) {
                 if (!data[i].themperature.empty() && data[i].themperature_average < themperature) {
                     isCorrect = true;
-                    cout << "Название метеостанции: \"" << data[i].name << "\". День: " << data[i].date << "." << endl;
+                    cout << "РќР°Р·РІР°РЅРёРµ РјРµС‚РµРѕСЃС‚Р°РЅС†РёРё: \"" << data[i].name << "\". Р”РµРЅСЊ: " << data[i].date << "." << endl;
                 }
             }
             if (!isCorrect) {
-                cout << "Подходящих метеоданных нет" << endl;
+                cout << "РџРѕРґС…РѕРґСЏС‰РёС… РјРµС‚РµРѕРґР°РЅРЅС‹С… РЅРµС‚" << endl;
             }
             break;
         }
         case 3: {
             int wind;
-            cout << "Введите среднесуточную скорость ветра: ";
+            cout << "Р’РІРµРґРёС‚Рµ СЃСЂРµРґРЅРµСЃСѓС‚РѕС‡РЅСѓСЋ СЃРєРѕСЂРѕСЃС‚СЊ РІРµС‚СЂР°: ";
             cin >> wind;
             bool isCorrect = false;
             for (int i = 0; i < number; i++) {
                 if (!data[i].wind.empty() && data[i].wind_average > wind) {
                     isCorrect = true;
-                    cout << "Название метеостанции: \"" << data[i].name << "\". День: " << data[i].date << "." << endl;
+                    cout << "РќР°Р·РІР°РЅРёРµ РјРµС‚РµРѕСЃС‚Р°РЅС†РёРё: \"" << data[i].name << "\". Р”РµРЅСЊ: " << data[i].date << "." << endl;
                 }
             }
             if (!isCorrect) {
-                cout << "Подходящих метеоданных нет." << endl;
+                cout << "РџРѕРґС…РѕРґСЏС‰РёС… РјРµС‚РµРѕРґР°РЅРЅС‹С… РЅРµС‚." << endl;
             }
             break;
         }
@@ -114,10 +114,10 @@ int main()
                 }
             }
             if (!isCorrect) {
-                cout << "Подходящих метеоданных нет" << endl;
+                cout << "РџРѕРґС…РѕРґСЏС‰РёС… РјРµС‚РµРѕРґР°РЅРЅС‹С… РЅРµС‚" << endl;
             } else {
-                cout << "Название метеостанции: \"" << data[hottest_index].name << "\". День: " << data[hottest_index].date << "." << endl
-                     << "Температура на протяжении дня: ";
+                cout << "РќР°Р·РІР°РЅРёРµ РјРµС‚РµРѕСЃС‚Р°РЅС†РёРё: \"" << data[hottest_index].name << "\". Р”РµРЅСЊ: " << data[hottest_index].date << "." << endl
+                     << "РўРµРјРїРµСЂР°С‚СѓСЂР° РЅР° РїСЂРѕС‚СЏР¶РµРЅРёРё РґРЅСЏ: ";
                 for (int i = 0; i < data[hottest_index].themperature_length; i++) {
                     cout << data[hottest_index].themperature[i];
                     if (i != data[hottest_index].themperature_length - 1) {
@@ -126,7 +126,7 @@ int main()
                         cout << ".";
                     }
                 }
-                cout << endl << "Скорость ветра на протяжении дня: ";
+                cout << endl << "РЎРєРѕСЂРѕСЃС‚СЊ РІРµС‚СЂР° РЅР° РїСЂРѕС‚СЏР¶РµРЅРёРё РґРЅСЏ: ";
                 for (int i = 0; i < data[hottest_index].wind_length; i ++) {
                     cout << data[hottest_index].wind[i];
                     if (i != data[hottest_index].wind_length - 1) {
@@ -136,7 +136,7 @@ int main()
                     }
                 }
                 if (!data[hottest_index].wind_length) {
-                    cout << "нет данных.";
+                    cout << "РЅРµС‚ РґР°РЅРЅС‹С….";
                 }
                 cout << endl;
             }
@@ -146,7 +146,7 @@ int main()
             ActiveProgram = false;
             break;
         default:
-            cout << "\nПовторите ввод\n\n";
+            cout << "\nРџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ\n\n";
             break;
         }
     }
